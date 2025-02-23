@@ -2,6 +2,47 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
+To run this project use  ng serve -o --port 4209
+https://freeapi.miniprojectideas.com/index.html
+
+## Create new Project
+1) ng new Angular_Basic_Project
+
+## Add BootStrap and entry in angular.json
+2) npm install bootstrap
+3) add css  bootstrap entry in angular.json
+3a)  "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+
+## Add Environments
+4) In app folder create environments command is ng g environments
+
+
+## Add guards
+5) Add "@schematics/angular:guard": { "implements": ["CanActivate"] } inside schematics{} in angular.json
+
+"schematics": {
+        "@schematics/angular:guard": { "implements": ["CanActivate"] }
+      },
+
+5a) command is:-  ng g guard auth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
