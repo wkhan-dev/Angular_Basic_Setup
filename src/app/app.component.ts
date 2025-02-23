@@ -10,4 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Angular_Basic_Setup';
+  firstname= "John";
+  ver = "18"
+  currentDate = new Date();
 }
