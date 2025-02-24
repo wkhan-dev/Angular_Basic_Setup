@@ -1,0 +1,139 @@
+@if(alertShow){
+    <app-alert [alertType]=alertType [message]=alertMessage></app-alert>
+}
+<h2>Example of a Reactive Forms!</h2>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+
+                Client List
+            </div>
+            <div class="card-body">
+             <table class=" table table-bordered"> 
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Company Name</th>
+                            <th>Project Name</th>
+                            <th>Lead By Employee</th>
+                            <th>Start Date</th>  
+                            <th>Expected End Date</th>                          
+                        </tr>
+                     </thead>
+                     <tbody>
+                        @for(item of clientProject; track $index)
+                        {
+                        <tr>
+                        <td>{{$index + 1}}</td>
+                        <td>{{item.clientName}}</td>
+                        <td>{{item.projectName}}</td>
+                        <td>{{item.empCode}}</td>
+                        <td>{{item.startDate}}</td>
+                        <td>{{item.expectedEndDate}}</td>
+                        <td class="text-center">
+                             <button class="btn btn-primary me-md-2" (click)="onEditClient(item)">Edit</button>
+                          <!--  <button class="btn btn-danger" (click)="onDeleteClient(item.clientProjectId)">Delete</button> -->
+                        </td>
+                        
+                    </tr> 
+                }  
+                     </tbody>
+
+             </table>
+            </div>
+        </div>      
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Client 
+            </div>
+            <div class="card-body">
+            <form [formGroup]="projectForm">
+            <div class="row">
+            
+                <div class="col-6">
+                    <label for ="">Project Name</label>
+                    <input type="text"  minlength="5" required  formControlName= "projectName" class="form-control"> 
+                    @if(projectForm.controls['projectName'].touched)
+                    {   
+                        <div class="text-danger">
+                            @if(projectForm.controls['projectName'].errors?.['required'])
+                            {
+                                <span> {{Required_Message}}</span>
+                            }
+                            @if(projectForm.controls['projectName'].errors?.['minlength'])
+                            {
+                                <span> {{Min_Required_Message}}</span>
+                            }
+                            
+                        </div>    
+                    }          
+                </div>
+                <div class="col-6">
+                    <label for ="">Start Date</label>
+                    <input type="date"  [value]= "projectForm.controls['startDate'].value | date:'yyyy-MM-dd'"  class="form-control" >
+                </div>
+              
+                <div class="col-6">
+                    <label for ="">Expected End Date</label>                    
+                    <input type="date"   [value]="projectForm.controls['expectedEndDate'].value | date:'yyyy-MM-dd'" class="form-control" >                
+                </div>
+                <div class="col-6">
+                    <label for ="">Lead By Employee</label>
+                    <select formControlName= "leadByEmpId" class="form-control" >
+                        @for(employee of employeeList; track $index)
+                        {
+                            <option [value]="employee.empId">{{employee.empName}} - {{employee.empCode}}</option>
+                        }
+                    </select>             
+                </div>
+                <div class="col-6">
+                    <label for ="">Contact Person</label>
+                    <input type="text"  formControlName= "contactPerson" class="form-control" >
+                </div>
+                <div class="col-6">
+                    <label for ="">projectCost</label>
+                    <input type="text"  formControlName= "projectCost" class="form-control" >
+                </div>
+                <!-- <div class="col-6">
+                    <label for ="">EmployeeStrength</label>
+                    <input type="text"  formControlName= "EmployeeStrength" class="form-control" >
+                </div> -->
+                <div class="col-6">
+                    <label for ="">totalEmpWorking</label>
+                    <input type="text"  formControlName= "totalEmpWorking" class="form-control" >
+                </div>
+                <div class="col-6">
+                    <label for ="">projectDetails</label>
+                    <textarea type="text"  formControlName= "projectDetails" class="form-control" > </textarea>
+               
+                </div>
+                <div class="col-6">
+                    <label for ="">Select Client</label>
+                    <select  formControlName= "clientId" class="form-control">
+                    @for(client of clientList; track $index){                       
+                    <option  [value]="client.clientId">
+                        {{client.companyName}} - {{client.clientId}} 
+                    </option>               
+                }
+            </select>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-6 text-center">
+                    <button class="btn btn-secondary" (click)="onResetClientProject()"> Reset</button>
+                </div>
+                <div class="col-6 text-center">
+                    <button class="btn btn-success" [disabled]="projectForm.invalid"  (click)="onSaveClientProject()"> Save Client</button>
+                </div>
+            </div>
+        </form>
+            </div>
+        </div>      
+    </div>
+
+</div>
+

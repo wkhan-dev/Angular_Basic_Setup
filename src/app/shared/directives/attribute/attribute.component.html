@@ -1,0 +1,15 @@
+<h2>Attribute Directive!</h2>
+<div [ngClass]="{'active': isActive, 'inactive': !isActive}">
+    Thsi is a section to show/hide when button
+</div>
+<button (click)="toggleActive()">
+    Toggle Active
+</button>
+<br/>
+<div [ngStyle]="{'height': '100px', 'background-color': backgroundColor, 'font-size.px': fontSize}">
+    Update a style property using attribute directive
+</div>
+
+<button (click)="styleUpdate()">
+    Style Update
+</button>

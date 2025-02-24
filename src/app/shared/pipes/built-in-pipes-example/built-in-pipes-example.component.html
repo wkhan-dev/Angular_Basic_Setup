@@ -1,0 +1,59 @@
+<h2>Built-In-Pipes-Example</h2>
+
+<h2>Date Pipe Example </h2>
+<p>{{today | date }}</p>
+<p>{{today | date : 'shortdate' }}</p>
+<p>{{today | date : 'dd/mm/yyyy'}}</p>
+
+<h2>UpperCase Pipe Example </h2>
+<p>{{ text | uppercase }}</p>
+<p>{{ text | lowercase }}</p>
+
+<h2>Currency Pipe Example </h2>
+<p>{{ amount | currency }}</p>
+<p>{{ amount | currency : 'EUR' }}</p>
+
+<h2>Decimal Pipe Example </h2>
+<p>{{ perVal | number : '1.1-2' }}</p>
+
+<h2>Percentage Pipe Example </h2>
+<p>{{ percentVal | percent }}</p>
+<p>{{ percentVal | percent : '1.1-1'}}</p>
+
+<h2>JSON Pipe Example </h2>
+<p>{{ jsonVal | json }}</p>
+
+<h2>JSON Pipe Example </h2>
+<p>{{ userList$ | json }}</p>
+
+<h2>Slice Pipe Example </h2>
+<p>{{ myArray | slice:1:3 }}</p>  <!--output will be 2,3 -->
+
+<h2>KeyValue Pipe Example </h2>
+<ul>
+    <li *ngFor="let item of myObject | keyvalue">
+    {{item.key}}
+    </li>     
+</ul>
+<h2>Async Example </h2>
+<ul>
+    @for(item of userList$ |async; track $index)
+    {       
+        <li>
+            {{item.name	}}
+        </li>
+    }
+</ul>
+
+<h2>Pure Pipe Example N/A </h2>
+<ul>
+    @for(student of students; track $index)
+    {       
+        <li>
+            {{student.name | na 	}}
+        </li>
+        <li>
+            {{student.contact | na 	}}
+        </li>
+    }
+</ul>

@@ -1,0 +1,30 @@
+<h2>Signal Example</h2>
+<!-- <p> Countervalue is {{ counter }}</p> -->
+<p> Countervalue is {{ counter() }}</p>
+<button (click)="increment()" >Counter increment++</button>
+
+<p>username value is {{ username() }}</p>
+
+<p>Vidoes title value is {{ videos().title }}</p>
+<p>Vidoes description value is {{ videos().description }}</p>
+<button (click)="setValuevideos()" >Video Vale set</button>
+
+<div class="card-body">
+    <table class=" table table-bordered"> 
+           <thead>
+               <tr>
+                   <th>Role Id</th>
+                   <th>Role</th>
+               </tr>
+            </thead>
+            <tbody>
+                @for(item of role(); track $index)
+                {
+                    <tr>
+                        <td>{{item.roleId}}</td>
+                        <td>{{item.role}}</td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+</div>

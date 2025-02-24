@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
 To run this project use  ng serve -o --port 4209
+
 https://freeapi.miniprojectideas.com/index.html
 
 ## Create new Project
@@ -32,9 +33,24 @@ https://freeapi.miniprojectideas.com/index.html
 
 
 
+## Add Routes into file app.routes.ts
 
+  //Regular Load Component
+   { 
+      path:'built-in-pipes',
+      component: BuiltInPipesExampleComponent
+   },
 
+ //Lazy load a Module 
+   {
+      path:'admin',
+      loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)
+   }
 
+in the html add <router-outlet></router-outlet>
+
+## Add Module
+command to create module is ng g module <moduleName>
 
 
 

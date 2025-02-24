@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mynavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signal" routerLinkActive="active">Signal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="client" >Client</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="clientProject" >ClientProject</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="TwoWayBinding" routerLinkActive="active">TwoWayBinding</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              routerLinkActive="active"
+              >One-way-Data-Binding</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" routerLink="interpolation" routerLinkActive="active"
+                  >Interpolation</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="EventBinding" routerLinkActive="active"
+                  >Event Binding</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="PropertyBinding" routerLinkActive="active"
+                  >Property Binding</a
+                >
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              routerLinkActive="active"            
+              >API-Integration</a
+            >
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="roles" routerLinkActive="active">Roles</a></li>
+              <li>
+                <a class="dropdown-item" routerLink="designation" routerLinkActive="active">Designation</a>
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              routerLinkActive="active"
+              >Pipes</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" routerLink="built-in-pipes" routerLinkActive="active"
+                  >built-in-pipes</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="impure-example" routerLinkActive="active"
+                  >impure-example</a
+                >
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              routerLinkActive="active"
+              >Directives</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" routerLink="Attribute" routerLinkActive="active">Attribute</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="Structural" routerLinkActive="active">Structural</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  
+        <form class="d-flex">
+         
+          <button class="btn btn-primary" type="button" (click)="onLogout()">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container pt-1">
+    <router-outlet></router-outlet>
+    </div>
+
